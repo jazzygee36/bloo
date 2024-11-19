@@ -4,17 +4,25 @@ import Loading from '../common/loading/loading';
 import Image from 'next/image';
 import Rating from '../../assets/images/rating.svg';
 
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+  vote_average: number;
+  overview: string;
+}
+
 const TopMovies = ({
   searchQuery,
   data,
 }: {
   searchQuery: string;
-  data: any;
+  data: { results: Movie[] };
 }) => {
   const movies = data?.results;
 
-  // Filter movies based on search query
-  const filteredMovies = movies?.filter((movie: any) =>
+  const filteredMovies = movies?.filter((movie) =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -26,7 +34,11 @@ const TopMovies = ({
     );
   }
 
-  const handleMovieDetails = (movie: any) => {
+  if (filteredMovies.length === 0) {
+    return <div className='text-white'>No movies found.</div>;
+  }
+
+  const handleMovieDetails = (movie: Movie) => {
     const url = `/movie-details?title=${encodeURIComponent(
       movie.title
     )}&poster_path=${encodeURIComponent(
@@ -45,14 +57,20 @@ const TopMovies = ({
       </h1>
 
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
-        {filteredMovies?.map((movie: any) => (
+        {filteredMovies.map((movie) => (
           <div key={movie.id}>
             <div
               onClick={() => handleMovieDetails(movie)}
-              className='rounded-t-lg h-64 bg-cover bg-center text-white flex items-end p-4 cursor-pointer'
+              className='rounded-t-lg h-64 bg-cover bg-center text-white flex items-end p-4 cursor-pointer movie-card'
               style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`,
+                backgroundImage: `url(${
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : '/placeholder-image.jpg'
+                })`,
               }}
+              role='button'
+              aria-label={`View details for ${movie.title}`}
             >
               <span className='bg-black bg-opacity-50 px-2 py-1 rounded'>
                 {movie.title}
@@ -68,7 +86,13 @@ const TopMovies = ({
                   Rating: {movie.vote_average}
                 </div>
                 <div>
-                  <Image src={Rating} alt='rating' />
+                  <Image
+                    src={Rating}
+                    alt='rating'
+                    width={16}
+                    height={16}
+                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                  />
                 </div>
               </div>
             </div>
