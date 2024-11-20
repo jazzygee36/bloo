@@ -28,3 +28,8 @@ display and manage a list of movies fetched from The Movie Database
   Frequently fetch, update, or sync server data.
   Need caching, deduplication, and background fetching capabilities.
   Aim to improve performance and user experience with minimal boilerplate code.
+
+- **Features**:
+  Movie Filtering: Users can filter movies by their title.
+  Detailed View: Users can click on a movie card to view more detailed information about the selected movie.
+  Favorites Management: Users can add movies to their favorites list or remove them as desired.
