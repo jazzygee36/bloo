@@ -45,7 +45,7 @@ const MovieDetails = () => {
     const title = searchParams.get('title') || '';
     const poster_path = searchParams.get('poster_path') || '';
     const release_date = searchParams.get('release_date') || '';
-    const vote_average = parseFloat(searchParams.get('vote_average') || '0'); // Convert to number
+    const vote_average = parseFloat(searchParams.get('vote_average') || '0');
     const overview = searchParams.get('overview') || '';
 
     setMovieDetails({
@@ -68,10 +68,8 @@ const MovieDetails = () => {
   const toggleFavorite = (movie: Movie) => {
     setFavorites((prevFavorites) => {
       if (prevFavorites.some((fav) => fav.id === movie.id)) {
-        // Remove movie if already in the list
         return prevFavorites.filter((fav) => fav.id !== movie.id);
       } else {
-        // Add movie to the list
         return [...prevFavorites, movie];
       }
     });
@@ -82,7 +80,8 @@ const MovieDetails = () => {
     title: details.title,
     poster_path: details.poster_path,
     release_date: details.release_date,
-    vote_average: details.vote_average, // Already a number
+    vote_average: details.vote_average,
+    overview: details.overview, // Ensure overview is included
   });
 
   return (
