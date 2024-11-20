@@ -25,7 +25,7 @@ const FavoritesPage = () => {
   };
 
   return (
-    <div className='bg-[#161616] text-white p-12 min-h-screen w-full'>
+    <div className='bg-[#161616] text-white p-4 md:p-12  min-h-screen w-full'>
       {loading ? (
         <Loading />
       ) : (
