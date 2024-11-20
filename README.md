@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title
 
-## Getting Started
+Front-End Software Engineer Challenge
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A responsive, dynamic application using Next.js, TypeScript, and Tailwind CSS to
+display and manage a list of movies fetched from The Movie Database
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository: `git clone https://github.com/jazzygee36/bloo.git`
+2. Install dependencies: `npm install`
+3. Start the application: `npm run dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage Guide
 
-## Learn More
+- Access the application at `http://localhost:3000`.
+- API documentation is available at `https://developer.themoviedb.org/reference/intro/getting-started`.
 
-To learn more about Next.js, take a look at the following resources:
+## Design Decisions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend**:
+  Used Next Js for its reusable component structure and scalability and for the strong present of of SEO.
+  TypeScript to handle the data type and also detect feature error.
+  Tailwind as design system for is light and for its dynamic responsiveness accross all platform.
+- **State Management**: React Query is an excellent choice for applications that:
+  Frequently fetch, update, or sync server data.
+  Need caching, deduplication, and background fetching capabilities.
+  Aim to improve performance and user experience with minimal boilerplate code.
