@@ -6,6 +6,7 @@ export interface Movie {
   release_date: string;
   vote_average: number;
   poster_path: string;
+  overview: string;
 }
 
 export interface MoviesResponse {
@@ -24,7 +25,7 @@ export interface TopRatedMoviesResponse {
   results: TopRatedMovie[];
 }
 
-export const fetchPopularMovies = async (): Promise<MoviesResponse> => {
+export const fetchPopularMovies = async (): Promise<{ results: Movie[] }> => {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=1`
   );

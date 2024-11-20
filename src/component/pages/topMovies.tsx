@@ -18,7 +18,7 @@ const TopMovies = ({
   data,
 }: {
   searchQuery: string;
-  data: { results: Movie[] };
+  data?: { results: Movie[] };
 }) => {
   const movies = data?.results;
 
@@ -34,7 +34,7 @@ const TopMovies = ({
     );
   }
 
-  if (filteredMovies.length === 0) {
+  if (filteredMovies?.length === 0) {
     return <div className='text-white'>No movies found.</div>;
   }
 
@@ -57,7 +57,7 @@ const TopMovies = ({
       </h1>
 
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
-        {filteredMovies.map((movie) => (
+        {filteredMovies?.map((movie) => (
           <div key={movie.id}>
             <div
               onClick={() => handleMovieDetails(movie)}

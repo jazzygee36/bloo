@@ -35,7 +35,7 @@ export default function Home() {
     <div>
       <Navbar onSearch={handleSearch} />
       <Banner />
-      <TopMovies searchQuery={searchQuery} data={data} />
+      <TopMovies searchQuery={searchQuery} data={data || { results: [] }} />
       <Genres />
       <Footer />
     </div>
