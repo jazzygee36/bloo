@@ -35,10 +35,12 @@ export const fetchPopularMovies = async (): Promise<{ results: Movie[] }> => {
   return response.json();
 };
 
+const NEXT_PUBLIC_TMDB_API_KEY = '750f9e7b20758cf873b81821065e0a71' as string;
+
 export const fetchTopRatedMovies =
   async (): Promise<TopRatedMoviesResponse> => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=1`
     );
     if (!response.ok) {
       throw new Error('Failed to fetch movies');
