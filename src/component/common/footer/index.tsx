@@ -14,12 +14,6 @@ const Company = [
   { name: 'Terms of Use' },
 ];
 
-const NewsLetter = [
-  { name: 'Follow Us' },
-  { name: 'Private Policy' },
-  { name: 'Terms of Use' },
-];
-
 const Footer = () => {
   return (
     <div className='bg-[#222222] w-full h-full'>
